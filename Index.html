@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I SIGNORI DELLE TENEBRE</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #050b18;
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 80% 30%, #123f52 0%, transparent 35%),
+    linear-gradient(145deg, #050b18, #071a35);
+}
+
+.top {
+  background: white;
+  color: #111;
+  text-align: center;
+  padding: 14px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.banner {
+  background: #d71925;
+  padding: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #111827;
+  border: 2px solid #d71925;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.brand {
+  flex: 1;
+  color: #2c9cf4;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 14px;
+  border: 1px solid #24528b;
+  background: #0b1932;
+  color: white;
+  font-size: 21px;
+}
+
+.content {
+  padding: 10px 18px 30px;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 12px 0 4px;
+}
+
+.subtitle {
+  color: #9eacc5;
+  margin-bottom: 22px;
+}
+
+.search {
+  width: 100%;
+  padding: 17px 20px;
+  border-radius: 35px;
+  border: 1px solid #28568e;
+  background: #0b1730;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 17px 0;
+}
+
+.category {
+  flex-shrink: 0;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 1px solid #28568e;
+  background: #0b1932;
+  color: #aebbd0;
+  font-weight: bold;
+}
+
+.category.active {
+  background: #249cf2;
+  color: white;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.card {
+  background: #0c1934;
+  border: 1px solid #214a80;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.product-image {
+  height: 135px;
+  background: linear-gradient(135deg, #202c42, #6b7280);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 55px;
+}
+
+.info {
+  padding: 14px;
+}
+
+.name {
+  font-size: 17px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.description {
+  color: #9eb2d3;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.buy {
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid #2766b1;
+  background: #102b55;
+  color: white;
+  font-weight: bold;
+}
+
+.contact {
+  display: block;
+  text-align: center;
+  margin: 25px 0 10px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #229bed;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px;
+  color: #8293af;
+  font-size: 13px;
+}
+
+@media (max-width: 380px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="top">
+    I SIGNORI DELLE TENEBRE — mini app
+  </div>
+
+  <div class="banner">
+    🔔 NOVITÀ — SCOPRI LE NOSTRE OFFERTE
+  </div>
+
+  <div class="header">
+    <div class="logo">🌑</div>
+
+    <div class="brand">
+      I SIGNORI<br>
+      DELLE TENEBRE
+    </div>
+
+    <button class="icon">👤</button>
+    <button class="icon">🛒</button>
+    <button class="icon">☰</button>
+  </div>
+
+  <main class="content">
+
+    <h1>🛍️ Catalogo</h1>
+
+    <div class="subtitle">
+      PRODOTTI LEGALI • QUALITÀ E SERVIZIO
+    </div>
+
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="🔎 Cerca prodotti..."
+    >
+
+    <div class="categories">
+
+      <button class="category active" data-category="all">
+        Tutti
+      </button>
+
+      <button class="category" data-category="tech">
+        📱 Elettronica
+      </button>
+
+      <button class="category" data-category="fashion">
+        👕 Abbigliamento
+      </button>
+
+      <button class="category" data-category="accessories">
+        🎒 Accessori
+      </button>
+
+    </div>
+
+    <div class="products" id="products">
+
+      <div class="card" data-category="tech" data-name="Smartphone Pro">
+        <div class="product-image">📱</div>
+
+        <div class="info">
+          <div class="name">Smartphone Pro</div>
+          <div class="description">
+            Smartphone di ultima generazione.
+          </div>
+          <div class="price">€499</div>
+          <button class="buy">Dettagli</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="fashion" data-name="Urban Hoodie">
+        <div class="product-image">👕</div>
+
+        <div class="info">
+          <div class="name">Urban Hoodie</div>
+          <div class="description">
+            Felpa premium.
+          </div>
+          <div class="price">€59</div>
+          <button class="buy">Dettagli</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="accessories" data-name="Travel Bag">
+        <div class="product-image">🎒</div>
+
+        <div class="info">
+          <div class="name">Travel Bag</div>
+          <div class="description">
+            Borsa da viaggio.
+          </div>
+          <div class="price">€39</div>
+          <button class="buy">Dettagli</button>
+        </div>
+      </div>
+
+      <div class="card" data-category="tech" data-name="Wireless Earbuds">
+        <div class="product-image">🎧</div>
+
+        <div class="info">
+          <div class="name">Wireless Earbuds</div>
+          <div class="description">
+            Auricolari wireless.
+          </div>
+          <div class="price">€79</div>
+          <button class="buy">Dettagli</button>
+        </div>
+      </div>
+
+    </div>
+
+    <a
+      class="contact"
+      href="https://t.me/"
+      target="_blank"
+    >
+      💬 CONTATTA SU TELEGRAM
+    </a>
+
+  </main>
+
+  <div class="footer">
+    © I SIGNORI DELLE TENEBRE
+  </div>
+
+</div>
+
+<script>
+
+const search = document.getElementById("search");
+const cards = document.querySelectorAll(".card");
+const categories = document.querySelectorAll(".category");
+
+function filterProducts() {
+
+  const text = search.value.toLowerCase();
+  const activeCategory =
+    document.querySelector(".category.active").dataset.category;
+
+  cards.forEach(card => {
+
+    const name = card.dataset.name.toLowerCase();
+    const category = card.dataset.category;
+
+    const matchesText = name.includes(text);
+
+    const matchesCategory =
+      activeCategory === "all" ||
+      category === activeCategory;
+
+    card.style.display =
+      matchesText && matchesCategory
+      ? "block"
+      : "none";
+  });
+}
+
+search.addEventListener("input", filterProducts);
+
+categories.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    categories.forEach(b =>
+      b.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    filterProducts();
+  });
+
+});
+
+</script>
+
+</body>
+</html>
