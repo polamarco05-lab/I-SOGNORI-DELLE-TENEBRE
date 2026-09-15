@@ -1,1197 +1,691 @@
-
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>I SIGNORI DELLE TENEBRE</title>
 
 <style>
 
-/* =========================
-   BASE
-========================= */
-
-* {
-  box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #030914;
-  color: white;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#030914;
+    color:white;
 }
 
-.app {
-  min-height: 100vh;
-
-  background:
-    radial-gradient(
-      circle at 80% 25%,
-      #123d54 0%,
-      transparent 35%
-    ),
-
-    linear-gradient(
-      145deg,
-      #030914,
-      #071a35
-    );
+.app{
+    min-height:100vh;
+    background:
+    radial-gradient(circle at 80% 25%,#123d54 0%,transparent 35%),
+    linear-gradient(145deg,#030914,#071a35);
 }
 
-
-/* =========================
-   BARRA SUPERIORE
-========================= */
-
-.top {
-  background: white;
-  color: #111;
-
-  text-align: center;
-
-  padding: 14px;
-
-  font-size: 16px;
-  font-weight: bold;
+.top{
+    background:white;
+    color:#111;
+    text-align:center;
+    padding:14px;
+    font-size:16px;
+    font-weight:bold;
 }
 
-
-/* =========================
-   BANNER
-========================= */
-
-.banner {
-  background: #d71925;
-
-  padding: 15px;
-
-  text-align: center;
-
-  font-size: 16px;
-  font-weight: bold;
+.banner{
+    background:#d71925;
+    padding:15px;
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
-.header {
-  display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  padding: 16px;
+.header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:16px;
 }
 
-
-/* LOGO */
-
-.logo {
-  width: 58px;
-  height: 58px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
-  border: 2px solid #e21d2b;
-
-  background: #080f1d;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
+.logo{
+    width:58px;
+    height:58px;
+    flex-shrink:0;
+    border-radius:50%;
+    border:2px solid #e21d2b;
+    background:#080f1d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
 }
 
-.logo img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-
-/* NOME */
-
-.brand {
-  flex: 1;
-
-  color: #249cf2;
-
-  font-size: 17px;
-
-  font-weight: 900;
-
-  line-height: 1.2;
+.brand{
+    flex:1;
+    color:#249cf2;
+    font-size:17px;
+    font-weight:900;
+    line-height:1.2;
 }
 
-
-/* ICONE */
-
-.icon {
-  width: 43px;
-  height: 43px;
-
-  flex-shrink: 0;
-
-  border-radius: 13px;
-
-  border: 1px solid #24528b;
-
-  background: #0b1932;
-
-  color: white;
-
-  font-size: 20px;
+.icon{
+    width:43px;
+    height:43px;
+    flex-shrink:0;
+    border-radius:13px;
+    border:1px solid #24528b;
+    background:#0b1932;
+    color:white;
+    font-size:20px;
 }
 
-
-/* =========================
-   CONTENUTO
-========================= */
-
-.content {
-  padding: 10px 16px 30px;
+.content{
+    padding:10px 16px 30px;
 }
 
-
-/* =========================
-   TITOLO CATALOGO
-========================= */
-
-.catalog-title {
-  text-align: center;
-
-  font-size: 31px;
-
-  font-weight: 900;
-
-  margin: 15px 0 5px;
-
-  letter-spacing: 1px;
+.catalog-title{
+    text-align:center;
+    font-size:31px;
+    font-weight:900;
+    margin:15px 0 5px;
+    letter-spacing:1px;
 }
 
-
-/* DESCRIZIONE */
-
-.subtitle {
-  text-align: center;
-
-  color: #b9c9df;
-
-  font-size: 16px;
-
-  font-weight: bold;
-
-  margin-bottom: 22px;
+.subtitle{
+    text-align:center;
+    color:#b9c9df;
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:22px;
 }
 
-
-/* =========================
-   RICERCA
-========================= */
-
-.search {
-  width: 100%;
-
-  padding: 16px 20px;
-
-  border-radius: 35px;
-
-  border: 1px solid #168cff;
-
-  background: #0b1730;
-
-  color: white;
-
-  font-size: 16px;
-
-  outline: none;
+.search{
+    width:100%;
+    padding:16px 20px;
+    border-radius:35px;
+    border:1px solid #168cff;
+    background:#0b1730;
+    color:white;
+    font-size:16px;
+    outline:none;
 }
 
-.search::placeholder {
-  color: #93a4c0;
+.categories{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding:17px 0;
+    scrollbar-width:none;
 }
 
-
-/* =========================
-   CATEGORIE
-========================= */
-
-.categories {
-  display: flex;
-
-  gap: 10px;
-
-  overflow-x: auto;
-
-  padding: 17px 0;
-
-  scrollbar-width: none;
+.category{
+    flex-shrink:0;
+    padding:12px 18px;
+    border-radius:30px;
+    border:1px solid #168cff;
+    background:#0b1932;
+    color:#d4e2f5;
+    font-weight:bold;
 }
 
-.categories::-webkit-scrollbar {
-  display: none;
+.category.active{
+    background:#168cff;
+    color:white;
 }
 
-
-.category {
-  flex-shrink: 0;
-
-  padding: 12px 18px;
-
-  border-radius: 30px;
-
-  border: 1px solid #168cff;
-
-  background: #0b1932;
-
-  color: #d4e2f5;
-
-  font-weight: bold;
+.products{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
 }
 
-
-.category.active {
-  background: #168cff;
-
-  color: white;
+.card{
+    background:#07162d;
+    border:1px solid #145b98;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
 }
 
-
-/* =========================
-   PRODOTTI
-========================= */
-
-.products {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 14px;
+.product-image{
+    height:145px;
+    background:linear-gradient(135deg,#26354c,#111c2e);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
 }
 
-
-/* =========================
-   CARD
-========================= */
-
-.card {
-
-  background: #07162d;
-
-  border: 1px solid #145b98;
-
-  border-radius: 20px;
-
-  overflow: hidden;
-
-  box-shadow:
-    0 5px 20px rgba(0,0,0,0.25);
+.product-image img,
+.product-image video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-
-/* IMMAGINE */
-
-.product-image {
-
-  height: 145px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #26354c,
-      #111c2e
-    );
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
+.product-emoji{
+    font-size:55px;
 }
 
-
-.product-image img {
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
+.info{
+    padding:14px;
 }
 
-
-/* Se non c'è immagine */
-
-.product-emoji {
-
-  font-size: 55px;
+.name{
+    font-size:17px;
+    font-weight:900;
+    margin-bottom:7px;
 }
 
-
-/* =========================
-   INFORMAZIONI
-========================= */
-
-.info {
-
-  padding: 14px;
+.description{
+    color:#9eb2d3;
+    font-size:13px;
+    line-height:1.4;
+    min-height:36px;
+    margin-bottom:12px;
 }
 
-
-.name {
-
-  font-size: 17px;
-
-  font-weight: 900;
-
-  margin-bottom: 7px;
+.details{
+    width:100%;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid #168cff;
+    background:#0d3470;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
 }
 
-
-.description {
-
-  color: #9eb2d3;
-
-  font-size: 13px;
-
-  line-height: 1.4;
-
-  min-height: 36px;
-
-  margin-bottom: 12px;
+.contact{
+    display:block;
+    text-align:center;
+    margin:25px 0 10px;
+    padding:16px;
+    border-radius:15px;
+    background:#229bed;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:16px;
 }
 
-
-/* =========================
-   BOTTONE DETTAGLI
-========================= */
-
-.details {
-
-  width: 100%;
-
-  padding: 12px;
-
-  border-radius: 12px;
-
-  border: 1px solid #168cff;
-
-  background: #0d3470;
-
-  color: white;
-
-  font-size: 15px;
-
-  font-weight: bold;
+.footer{
+    text-align:center;
+    padding:25px;
+    color:#8293af;
+    font-size:13px;
 }
 
-
-/* =========================
-   TELEGRAM
-========================= */
-
-.contact {
-
-  display: block;
-
-  text-align: center;
-
-  margin: 25px 0 10px;
-
-  padding: 16px;
-
-  border-radius: 15px;
-
-  background: #229bed;
-
-  color: white;
-
-  text-decoration: none;
-
-  font-weight: bold;
-
-  font-size: 16px;
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.78);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer {
-
-  text-align: center;
-
-  padding: 25px;
-
-  color: #8293af;
-
-  font-size: 13px;
+.modal-box{
+    width:100%;
+    max-width:420px;
+    background:#08172e;
+    border:1px solid #168cff;
+    border-radius:22px;
+    padding:24px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,.5);
 }
 
-
-/* =========================
-   FINESTRA DETTAGLI
-========================= */
-
-.modal {
-
-  display: none;
-
-  position: fixed;
-
-  z-index: 1000;
-
-  left: 0;
-  top: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0,0,0,0.78);
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 20px;
+.modal-box h2{
+    margin-top:0;
+    font-size:25px;
 }
 
-
-.modal-box {
-
-  width: 100%;
-
-  max-width: 420px;
-
-  background: #08172e;
-
-  border: 1px solid #168cff;
-
-  border-radius: 22px;
-
-  padding: 24px;
-
-  text-align: center;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.5);
+.modal-description{
+    color:#aebed5;
+    line-height:1.5;
+    margin:15px 0;
 }
 
-
-.modal-box h2 {
-
-  margin-top: 0;
-
-  font-size: 25px;
+.modal-price{
+    font-size:28px;
+    font-weight:900;
+    color:#39a7ff;
+    margin:20px 0;
 }
 
-
-.modal-description {
-
-  color: #aebed5;
-
-  line-height: 1.5;
-
-  margin: 15px 0;
+.close{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:12px;
+    background:#d71925;
+    color:white;
+    font-weight:bold;
+    font-size:15px;
 }
 
+@media(max-width:380px){
 
-.modal-price {
+    .products{
+        grid-template-columns:1fr;
+    }
 
-  font-size: 28px;
+    .brand{
+        font-size:15px;
+    }
 
-  font-weight: 900;
-
-  color: #39a7ff;
-
-  margin: 20px 0;
-}
-
-
-.close {
-
-  width: 100%;
-
-  padding: 13px;
-
-  border: 0;
-
-  border-radius: 12px;
-
-  background: #d71925;
-
-  color: white;
-
-  font-weight: bold;
-
-  font-size: 15px;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 380px) {
-
-  .products {
-    grid-template-columns: 1fr;
-  }
-
-  .brand {
-    font-size: 15px;
-  }
-
-  .icon {
-    width: 38px;
-    height: 38px;
-  }
-
+    .icon{
+        width:38px;
+        height:38px;
+    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 <div class="app">
 
+    <div class="top">
+        I SIGNORI DELLE TENEBRE — mini app
+    </div>
 
-  <!-- BARRA SUPERIORE -->
+    <div class="banner">
+        🔔 NOVITÀ — SCOPRI LE NOSTRE OFFERTE
+    </div>
 
-  <div class="top">
+    <div class="header">
 
-    I SIGNORI DELLE TENEBRE — mini app
+        <div class="logo">
+            <img src="IMG-20260904-WA0001.jpg" alt="Logo">
+        </div>
 
-  </div>
+        <div class="brand">
+            I SIGNORI<br>
+            DELLE TENEBRE
+        </div>
 
-
-  <!-- BANNER -->
-
-  <div class="banner">
-
-    🔔 NOVITÀ — SCOPRI LE NOSTRE OFFERTE
-
-  </div>
-
-
-  <!-- HEADER -->
-
-  <div class="header">
-
-
-    <div class="logo">
-
-      <img
-        src="IMG-20260904-WA0001.jpg"
-        alt="Logo"
-      >
+        <button class="icon">👤</button>
+        <button class="icon">🛒</button>
+        <button class="icon">☰</button>
 
     </div>
 
+    <main class="content">
 
-    <div class="brand">
+        <h1 class="catalog-title">
+            🛍️ CATALOGO 🛍️
+        </h1>
 
-      I SIGNORI<br>
-      DELLE TENEBRE
+        <div class="subtitle">
+            SOLO PRODOTTI DI QUALITÀ
+        </div>
 
+        <input
+            id="search"
+            class="search"
+            type="search"
+            placeholder="🔎 Cerca prodotti..."
+        >
+
+        <!-- CATEGORIE -->
+
+        <div class="categories">
+
+            <button class="category active" data-category="all">
+                Tutti
+            </button>
+
+            <button class="category" data-category="phone">
+                📱 PHONE
+            </button>
+
+            <button class="category" data-category="dry">
+                💎 DRY PREMIUM
+            </button>
+
+            <button class="category" data-category="lunar">
+                🌑 LUNAR FROZEN
+            </button>
+
+        </div>
+
+
+        <!-- PRODOTTI -->
+
+        <div class="products" id="products">
+
+
+            <!-- PHONE -->
+
+            <div
+                class="card"
+                data-category="phone"
+                data-name="Cellulari Criptati"
+            >
+
+                <div class="product-image">
+
+                    <!--
+                    Dopo aver caricato la foto su GitHub,
+                    puoi sostituire questo emoji con:
+
+                    <img src="phone.jpg" alt="Cellulari">
+                    -->
+
+                    <span class="product-emoji">
+                        📱
+                    </span>
+
+                </div>
+
+                <div class="info">
+
+                    <div class="name">
+                        📱 CELLULARI CRIPTATI 📱
+                    </div>
+
+                    <div class="description">
+                        Tecnologia orientata alla privacy e alla sicurezza.
+                    </div>
+
+                    <button
+                        class="details"
+                        onclick="showDetails(
+                        '📱 CELLULARI CRIPTATI 📱',
+                        'Tecnologia orientata alla privacy e alla sicurezza.',
+                        'Prezzi disponibili nei dettagli'
+                        )"
+                    >
+                        Dettagli →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- DRY PREMIUM -->
+
+            <div
+                class="card"
+                data-category="dry"
+                data-name="Dry Premium"
+            >
+
+                <div class="product-image">
+
+                    <span class="product-emoji">
+                        💎
+                    </span>
+
+                </div>
+
+                <div class="info">
+
+                    <div class="name">
+                        💎 DRY PREMIUM 💎
+                    </div>
+
+                    <div class="description">
+                        Scheda prodotto.
+                    </div>
+
+                    <button
+                        class="details"
+                        onclick="showDetails(
+                        '💎 DRY PREMIUM 💎',
+                        'Scheda prodotto da completare.',
+                        'Prezzo non disponibile'
+                        )"
+                    >
+                        Dettagli →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- LUNAR FROZEN -->
+
+            <div
+                class="card"
+                data-category="lunar"
+                data-name="Lunar Frozen"
+            >
+
+                <div class="product-image">
+
+                    <span class="product-emoji">
+                        🌑
+                    </span>
+
+                </div>
+
+                <div class="info">
+
+                    <div class="name">
+                        🌑 LUNAR FROZEN 🌑
+                    </div>
+
+                    <div class="description">
+                        Scheda prodotto.
+                    </div>
+
+                    <button
+                        class="details"
+                        onclick="showDetails(
+                        '🌑 LUNAR FROZEN 🌑',
+                        'Scheda prodotto da completare.',
+                        'Prezzo non disponibile'
+                        )"
+                    >
+                        Dettagli →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- TELEGRAM -->
+
+        <a
+            class="contact"
+            href="https://t.me/lucifero2026"
+            target="_blank"
+        >
+            💬 CONTATTACI SU TELEGRAM
+        </a>
+
+    </main>
+
+
+    <div class="footer">
+        © I SIGNORI DELLE TENEBRE
     </div>
-
-
-    <button class="icon">
-
-      👤
-
-    </button>
-
-
-    <button class="icon">
-
-      🛒
-
-    </button>
-
-
-    <button class="icon">
-
-      ☰
-
-    </button>
-
-
-  </div>
-
-
-  <!-- CONTENUTO -->
-
-  <main class="content">
-
-
-    <!-- TITOLO -->
-
-    <h1 class="catalog-title">
-
-      🛍️ CATALOGO 🛍️
-
-    </h1>
-
-
-    <div class="subtitle">
-
-      SOLO PRODOTTI DI QUALITÀ
-
-    </div>
-
-
-    <!-- RICERCA -->
-
-    <input
-
-      id="search"
-
-      class="search"
-
-      type="search"
-
-      placeholder="🔎 Cerca prodotti..."
-
-    >
-
-
-    <!-- CATEGORIE -->
-
-    <div class="categories">
-
-
-      <button
-        class="category active"
-        data-category="all"
-      >
-
-        Tutti
-
-      </button>
-
-
-      <button
-        class="category"
-        data-category="tech"
-      >
-
-        📱 Elettronica
-
-      </button>
-
-
-      <button
-        class="category"
-        data-category="fashion"
-      >
-
-        👕 Abbigliamento
-
-      </button>
-
-
-      <button
-        class="category"
-        data-category="accessories"
-      >
-
-        🎒 Accessori
-
-      </button>
-
-
-    </div>
-
-
-    <!-- PRODOTTI -->
-
-    <div
-      class="products"
-      id="products"
-    >
-
-
-      <!-- PRODOTTO 1 -->
-
-      <div
-        class="card"
-        data-category="tech"
-        data-name="Smartphone Pro"
-      >
-
-        <div class="product-image">
-
-          <span class="product-emoji">
-            📱
-          </span>
-
-        </div>
-
-
-        <div class="info">
-
-          <div class="name">
-
-            Smartphone Pro
-
-          </div>
-
-
-          <div class="description">
-
-            Smartphone di ultima generazione.
-
-          </div>
-
-
-          <button
-            class="details"
-            onclick="showDetails(
-              'Smartphone Pro',
-              'Smartphone di ultima generazione.',
-              '€499'
-            )"
-          >
-
-            Dettagli →
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODOTTO 2 -->
-
-      <div
-        class="card"
-        data-category="fashion"
-        data-name="Urban Hoodie"
-      >
-
-        <div class="product-image">
-
-          <span class="product-emoji">
-            👕
-          </span>
-
-        </div>
-
-
-        <div class="info">
-
-          <div class="name">
-
-            Urban Hoodie
-
-          </div>
-
-
-          <div class="description">
-
-            Felpa premium e confortevole.
-
-          </div>
-
-
-          <button
-            class="details"
-            onclick="showDetails(
-              'Urban Hoodie',
-              'Felpa premium e confortevole.',
-              '€59'
-            )"
-          >
-
-            Dettagli →
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODOTTO 3 -->
-
-      <div
-        class="card"
-        data-category="accessories"
-        data-name="Travel Bag"
-      >
-
-        <div class="product-image">
-
-          <span class="product-emoji">
-            🎒
-          </span>
-
-        </div>
-
-
-        <div class="info">
-
-          <div class="name">
-
-            Travel Bag
-
-          </div>
-
-
-          <div class="description">
-
-            Borsa da viaggio resistente.
-
-          </div>
-
-
-          <button
-            class="details"
-            onclick="showDetails(
-              'Travel Bag',
-              'Borsa da viaggio resistente.',
-              '€39'
-            )"
-          >
-
-            Dettagli →
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODOTTO 4 -->
-
-      <div
-        class="card"
-        data-category="tech"
-        data-name="Wireless Earbuds"
-      >
-
-        <div class="product-image">
-
-          <span class="product-emoji">
-            🎧
-          </span>
-
-        </div>
-
-
-        <div class="info">
-
-          <div class="name">
-
-            Wireless Earbuds
-
-          </div>
-
-
-          <div class="description">
-
-            Auricolari wireless di qualità.
-
-          </div>
-
-
-          <button
-            class="details"
-            onclick="showDetails(
-              'Wireless Earbuds',
-              'Auricolari wireless di qualità.',
-              '€79'
-            )"
-          >
-
-            Dettagli →
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- TELEGRAM -->
-
-   <a
-  class="contact"
-  href="https://t.me/lucifero2026"
-  target="_blank"
->
-  💬 CONTATTACI SU TELEGRAM
-</a>
-    
-
-      💬 CONTATTACI SU TELEGRAM
-
-    </a>
-
-
-  </main>
-
-
-  <div class="footer">
-
-    © I SIGNORI DELLE TENEBRE
-
-  </div>
-
 
 </div>
 
 
-<!-- =========================
-     FINESTRA DETTAGLI
-========================= -->
+<!-- MODALE -->
 
-<div
-  id="modal"
-  class="modal"
->
+<div id="modal" class="modal">
 
+    <div class="modal-box">
 
-  <div class="modal-box">
+        <h2 id="modalName">
+            Prodotto
+        </h2>
 
+        <div
+            id="modalDescription"
+            class="modal-description"
+        ></div>
 
-    <h2 id="modalName">
+        <div
+            id="modalPrice"
+            class="modal-price"
+        ></div>
 
-      Prodotto
-
-    </h2>
-
-
-    <div
-      id="modalDescription"
-      class="modal-description"
-    >
-
-    </div>
-
-
-    <div
-      id="modalPrice"
-      class="modal-price"
-    >
+        <button
+            class="close"
+            onclick="closeDetails()"
+        >
+            CHIUDI
+        </button>
 
     </div>
-
-
-    <button
-      class="close"
-      onclick="closeDetails()"
-    >
-
-      CHIUDI
-
-    </button>
-
-
-  </div>
-
 
 </div>
 
 
 <script>
 
-/* =========================
-   RICERCA
-========================= */
+const search = document.getElementById("search");
 
-const search =
-  document.getElementById("search");
-
-
-const cards =
-  document.querySelectorAll(".card");
-
+const cards = document.querySelectorAll(".card");
 
 const categories =
-  document.querySelectorAll(".category");
+document.querySelectorAll(".category");
 
 
-function filterProducts() {
+function filterProducts(){
 
-
-  const text =
+    const text =
     search.value.toLowerCase();
 
-
-  const active =
+    const active =
     document
-      .querySelector(".category.active")
-      .dataset.category;
+    .querySelector(".category.active")
+    .dataset.category;
 
+    cards.forEach(card => {
 
-  cards.forEach(card => {
+        const name =
+        card.dataset.name.toLowerCase();
 
+        const category =
+        card.dataset.category;
 
-    const name =
-      card.dataset.name.toLowerCase();
+        const textMatch =
+        name.includes(text);
 
+        const categoryMatch =
+        active === "all" ||
+        category === active;
 
-    const category =
-      card.dataset.category;
+        if(textMatch && categoryMatch){
 
+            card.style.display = "";
 
-    const textMatch =
-      name.includes(text);
+        }else{
 
+            card.style.display = "none";
 
-    const categoryMatch =
-      active === "all" ||
-      category === active;
+        }
 
-
-    if (
-      textMatch &&
-      categoryMatch
-    ) {
-
-      card.style.display = "";
-
-    } else {
-
-      card.style.display = "none";
-
-    }
-
-  });
+    });
 
 }
 
 
-/* RICERCA */
-
 search.addEventListener(
-  "input",
-  filterProducts
+    "input",
+    filterProducts
 );
 
 
-/* CATEGORIE */
-
 categories.forEach(button => {
 
+    button.addEventListener(
+        "click",
+        () => {
 
-  button.addEventListener(
-    "click",
-    () => {
+            categories.forEach(b =>
+                b.classList.remove("active")
+            );
 
+            button.classList.add("active");
 
-      categories.forEach(
-        b => b.classList.remove("active")
-      );
+            filterProducts();
 
-
-      button.classList.add("active");
-
-
-      filterProducts();
-
-    }
-  );
+        }
+    );
 
 });
 
 
-/* =========================
-   DETTAGLI PRODOTTO
-========================= */
-
 function showDetails(
-  name,
-  description,
-  price
-) {
+    name,
+    description,
+    price
+){
 
+    document.getElementById(
+        "modalName"
+    ).textContent = name;
 
-  document.getElementById(
-    "modalName"
-  ).textContent = name;
+    document.getElementById(
+        "modalDescription"
+    ).textContent = description;
 
+    document.getElementById(
+        "modalPrice"
+    ).textContent = price;
 
-  document.getElementById(
-    "modalDescription"
-  ).textContent = description;
-
-
-  document.getElementById(
-    "modalPrice"
-  ).textContent = price;
-
-
-  document.getElementById(
-    "modal"
-  ).style.display = "flex";
+    document.getElementById(
+        "modal"
+    ).style.display = "flex";
 
 }
 
 
-/* CHIUDI */
+function closeDetails(){
 
-function closeDetails() {
-
-  document.getElementById(
-    "modal"
-  ).style.display = "none";
+    document.getElementById(
+        "modal"
+    ).style.display = "none";
 
 }
 
-
-/* CHIUDI CLICCANDO FUORI */
 
 document
-  .getElementById("modal")
-  .addEventListener(
+.getElementById("modal")
+.addEventListener(
     "click",
-    function(event) {
+    function(event){
 
+        if(event.target === this){
 
-      if (
-        event.target === this
-      ) {
+            closeDetails();
 
-        closeDetails();
-
-      }
+        }
 
     }
-  );
+);
 
 </script>
 
-
 </body>
-
 </html>
